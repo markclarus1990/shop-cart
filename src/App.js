@@ -34,8 +34,20 @@ export default function App() {
     }
   }
   function onAddItem(newItem) {
-    setItems([...items, newItem]);
-    console.log(items);
+    // Using map to create an array of boolean values
+    const itemExists = items.map((item) => item.desc === newItem.desc);
+
+    // Check if the array contains any 'true' values
+    if (itemExists.includes(true)) {
+      toastr.error("Item Exists!", "", { timeOut: 800 });
+    } else {
+      // Add the new item if it doesn't exist
+      setItems([...items, newItem]);
+      console.log(items);
+      toastr.success("+" + newItem.total + "₱", "", {
+        timeOut: 1000,
+      });
+    }
   }
 
   function handleBill() {
@@ -78,9 +90,7 @@ function FormItem({ onAddItem, handleBill }) {
     } else {
       onAddItem(newItem);
       handleBill();
-      toastr.success("+" + Math.round(nQty * nPrice) + "₱", "", {
-        timeOut: 1000,
-      });
+
       setNItem("");
       setQty("");
       setNPrice("");
