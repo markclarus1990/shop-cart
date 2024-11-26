@@ -208,3 +208,31 @@ input[type="checkbox"] {
   /* Customize toast message styles */
   margin-right: auto;
 }
+
+.menu {
+  padding: 2.8rem 0;
+  display: flex;
+  flex-wrap: wrap;
+  flex-direction: row;
+  gap: 1.2rem;
+  align-items: center;
+}
+
+.menu .isaw {
+  background-image: url("isaw.png");
+}
+.menu .dugo {
+  background-image: url("dugo.png");
+}
+.menu .adidas {
+  background-image: url("adidas.png");
+}
+
+.menu .laman {
+  background-image: url("bbq.png");
+}
+
+.menu button {
+  height: 100px;
+  width: 100px;
+}

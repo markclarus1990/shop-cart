@@ -16,8 +16,10 @@ const data = [
     total: 100,
   },
 ];
+
 export default function App() {
   const [items, setItems] = useState([]);
+
   const [total, setTotal] = useState(0);
   useEffect(() => {
     // Calculate total sum whenever items array changes
@@ -66,7 +68,7 @@ export default function App() {
 function Header() {
   return (
     <div>
-      <h1>🛍️Shopping Cart🛒</h1>
+      <h1>Foodlora🍖</h1>
     </div>
   );
 }
@@ -82,10 +84,22 @@ function FormItem({ onAddItem, handleBill }) {
     const newItem = {
       id: id,
       desc: nItem,
+      qty: nQty,
       total: Math.round(nQty * nPrice),
     };
     // console.log(newItem);
-    if (!nItem || !nQty || !nPrice) {
+    // if (!nItem || !nQty || !nPrice) {
+    //   toastr.error("Do not leave blanks", "", { timeOut: 800 });
+    // } else {
+    //   onAddItem(newItem);
+    //   handleBill();
+
+    //   setNItem("");
+    //   setQty("");
+    //   setNPrice("");
+    // }
+
+    if (!nQty || !nPrice) {
       toastr.error("Do not leave blanks", "", { timeOut: 800 });
     } else {
       onAddItem(newItem);
@@ -96,14 +110,96 @@ function FormItem({ onAddItem, handleBill }) {
       setNPrice("");
     }
   }
+
+  function isaw() {
+    setNItem("Isaw");
+    setNPrice(5);
+  }
+
+  function handleDugo() {
+    setNItem("Dugo");
+    setNPrice(10);
+  }
+
+  function bbq() {
+    setNItem("BBQ");
+    setNPrice(15);
+  }
+  function adidas() {
+    setNItem("Adidas");
+    setNPrice(10);
+  }
+  function hotdog() {
+    setNItem("Hotdog");
+    setNPrice(8);
+  }
+
   return (
-    <form className="add-form" onSubmit={handleSubmit}>
-      <input
+    <form
+      className="add-form"
+      onSubmit={handleSubmit}
+      isaw={isaw}
+      dugo={handleDugo}
+      bbq={bbq}
+      adidas={adidas}
+      hotdog={hotdog}
+    >
+      <div className="menu">
+        <div>
+          <button
+            className="isaw"
+            onClick={() => {
+              isaw();
+            }}
+          >
+            Isaw
+          </button>
+        </div>
+
+        <button
+          className="dugo"
+          onClick={() => {
+            handleDugo();
+          }}
+        >
+          Dugo
+        </button>
+
+        <button
+          className="laman"
+          onClick={() => {
+            bbq();
+          }}
+        >
+          BBQ
+        </button>
+
+        <button
+          className="adidas"
+          onClick={() => {
+            adidas();
+          }}
+        >
+          Adidas
+        </button>
+
+        <button
+          className="hotdog"
+          onClick={() => {
+            hotdog();
+          }}
+        >
+          Hotdog
+        </button>
+      </div>
+
+      {/* <input
         type="text"
         value={nItem}
         onChange={(e) => setNItem(e.target.value)}
         placeholder="Enter Item"
-      ></input>
+      ></input> */}
+
       <input
         type="number"
         step={"0.01"}
@@ -149,6 +245,7 @@ function List({ item, onToggle, onRemove }) {
 
       <div className="listahan">
         <div>{item.desc}</div>
+        <div>{item.qty}</div>
         <div>
           {item.total % 1 !== 0
             ? `${item.total.toLocaleString()}₱`
