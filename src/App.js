@@ -118,7 +118,7 @@ function FormItem({ onAddItem, handleBill }) {
 
   function handleDugo() {
     setNItem("Dugo");
-    setNPrice(10);
+    setNPrice(5);
   }
 
   function bbq() {
