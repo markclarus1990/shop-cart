@@ -133,89 +133,107 @@ function FormItem({ onAddItem, handleBill }) {
     setNItem("Hotdog");
     setNPrice(8);
   }
-
+  function maskara() {
+    setNItem("Maskara");
+    setNPrice(10);
+  }
   return (
-    <form
-      className="add-form"
-      onSubmit={handleSubmit}
-      isaw={isaw}
-      dugo={handleDugo}
-      bbq={bbq}
-      adidas={adidas}
-      hotdog={hotdog}
-    >
-      <div className="menu">
-        <div>
+    <>
+      <form
+        className="add-form"
+        onSubmit={handleSubmit}
+        isaw={isaw}
+        dugo={handleDugo}
+        bbq={bbq}
+        adidas={adidas}
+        hotdog={hotdog}
+        maskara={maskara}
+      >
+        <div className="menu">
+          <div>
+            <button
+              className="isaw"
+              onClick={() => {
+                isaw();
+              }}
+            >
+              Isaw
+            </button>
+          </div>
+
           <button
-            className="isaw"
+            className="dugo"
             onClick={() => {
-              isaw();
+              handleDugo();
             }}
           >
-            Isaw
+            Dugo
+          </button>
+
+          <button
+            className="laman"
+            onClick={() => {
+              bbq();
+            }}
+          >
+            BBQ
+          </button>
+
+          <button
+            className="adidas"
+            onClick={() => {
+              adidas();
+            }}
+          >
+            Adidas
+          </button>
+
+          <button
+            className="hotdog"
+            onClick={() => {
+              hotdog();
+            }}
+          >
+            Hotdog
+          </button>
+          <button
+            className="maskara"
+            onClick={() => {
+              maskara();
+            }}
+          >
+            Maskara
           </button>
         </div>
-
-        <button
-          className="dugo"
-          onClick={() => {
-            handleDugo();
-          }}
-        >
-          Dugo
-        </button>
-
-        <button
-          className="laman"
-          onClick={() => {
-            bbq();
-          }}
-        >
-          BBQ
-        </button>
-
-        <button
-          className="adidas"
-          onClick={() => {
-            adidas();
-          }}
-        >
-          Adidas
-        </button>
-
-        <button
-          className="hotdog"
-          onClick={() => {
-            hotdog();
-          }}
-        >
-          Hotdog
-        </button>
-      </div>
-
-      {/* <input
+        <input
+          className="client"
+          type="text"
+          placeholder="Enter Customer"
+        ></input>
+        {/* <input
         type="text"
         value={nItem}
         onChange={(e) => setNItem(e.target.value)}
         placeholder="Enter Item"
       ></input> */}
 
-      <input
-        type="number"
-        step={"0.01"}
-        value={nPrice}
-        onChange={(e) => setNPrice(parseFloat(e.target.value))}
-        placeholder="Enter Price"
-      ></input>
-      <input
-        type="number"
-        value={nQty}
-        onChange={(e) => setQty(Number(e.target.value))}
-        placeholder="Enter Quantity"
-      ></input>
+        <input
+          type="number"
+          step={"0.01"}
+          value={nPrice}
+          onChange={(e) => setNPrice(parseFloat(e.target.value))}
+          placeholder="Enter Price"
+        ></input>
+        <input
+          type="number"
+          value={nQty}
+          onChange={(e) => setQty(Number(e.target.value))}
+          placeholder="Enter Quantity"
+        ></input>
 
-      <button className="button">Add Item</button>
-    </form>
+        <button className="button">Add Item</button>
+      </form>
+    </>
   );
 }
 

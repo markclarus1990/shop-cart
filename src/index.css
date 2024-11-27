@@ -220,19 +220,37 @@ input[type="checkbox"] {
 
 .menu .isaw {
   background-image: url("isaw.png");
+  background-size: contain;
 }
 .menu .dugo {
   background-image: url("dugo.png");
+  background-size: contain;
 }
 .menu .adidas {
   background-image: url("adidas.png");
+  background-size: contain;
 }
 
 .menu .laman {
   background-image: url("bbq.png");
+  background-size: contain;
+}
+
+.menu .hotdog {
+  background-image: url("hotdog.png");
+  background-size: contain;
+}
+.menu .maskara {
+  background-image: url("maskara.png");
+  background-size: contain;
 }
 
 .menu button {
   height: 100px;
   width: 100px;
+}
+
+.client {
+  align-items: center;
+  width: 200px;
 }
